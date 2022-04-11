@@ -72,7 +72,7 @@ jobs:
         run: |
           echo "JENKINS_VERSION=$(curl -s https://raw.githubusercontent.com/${{ github.repository }}/master/pom.xml | awk -F '[<>]' '/jenkins.version/{print $3}')" >> $GITHUB_ENV
       - run: run-pct
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: pct-report
           path: /home/runner/work/__w/out/pct-report.html
