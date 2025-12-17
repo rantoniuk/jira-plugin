@@ -52,7 +52,9 @@ class JiraVersionCreatorReadResolvePipelineTest extends BasePipelineTest {
 
     private static void nullifyFailIfAlreadyExists(Object target) {
         def field = target.getClass().declaredFields.find { it.name == FAIL_IF_ALREADY_EXISTS_FIELD }
-        assert field != null
+        if (field == null) {
+            throw new IllegalStateException("Field $FAIL_IF_ALREADY_EXISTS_FIELD not found on ${target.getClass().name}")
+        }
         field.accessible = true
         field.set(target, null)
     }
