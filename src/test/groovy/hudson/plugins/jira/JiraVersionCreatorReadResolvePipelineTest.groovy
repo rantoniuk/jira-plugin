@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test
 
 class JiraVersionCreatorReadResolvePipelineTest extends BasePipelineTest {
 
+    private static final String FAIL_IF_ALREADY_EXISTS_FIELD = "failIfAlreadyExists"
+
     @BeforeEach
     void setUpTest() {
         super.setUp()
@@ -22,7 +24,7 @@ class JiraVersionCreatorReadResolvePipelineTest extends BasePipelineTest {
             assert resolved.isFailIfAlreadyExists()
         }
         helper.registerAllowedMethod("step", [Map]) { Map args ->
-            if (args?.$class == 'JiraVersionCreator') {
+            if (args?.$class == JiraVersionCreator.simpleName) {
                 def notifier = new JiraVersionCreator(
                         args.jiraVersion as String,
                         args.jiraProjectKey as String)
@@ -49,7 +51,8 @@ class JiraVersionCreatorReadResolvePipelineTest extends BasePipelineTest {
     }
 
     private static void nullifyFailIfAlreadyExists(Object target) {
-        def field = target.getClass().getDeclaredField("failIfAlreadyExists")
+        def field = target.getClass().declaredFields.find { it.name == FAIL_IF_ALREADY_EXISTS_FIELD }
+        assert field != null
         field.accessible = true
         field.set(target, null)
     }
