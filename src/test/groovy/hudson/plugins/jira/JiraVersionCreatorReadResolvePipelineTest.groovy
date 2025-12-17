@@ -17,8 +17,9 @@ class JiraVersionCreatorReadResolvePipelineTest extends BasePipelineTest {
                     args.jiraVersion as String,
                     args.jiraProjectKey as String)
             nullifyFailIfAlreadyExists(builder)
-            builder.readResolve()
-            assert builder.isFailIfAlreadyExists()
+            def resolved = builder.readResolve()
+            assert resolved instanceof JiraVersionCreatorBuilder
+            assert resolved.isFailIfAlreadyExists()
         }
         helper.registerAllowedMethod("step", [Map]) { Map args ->
             if (args?.$class == 'JiraVersionCreator') {
@@ -26,8 +27,9 @@ class JiraVersionCreatorReadResolvePipelineTest extends BasePipelineTest {
                         args.jiraVersion as String,
                         args.jiraProjectKey as String)
                 nullifyFailIfAlreadyExists(notifier)
-                notifier.readResolve()
-                assert notifier.isFailIfAlreadyExists()
+                def resolved = notifier.readResolve()
+                assert resolved instanceof JiraVersionCreator
+                assert resolved.isFailIfAlreadyExists()
             }
         }
     }
