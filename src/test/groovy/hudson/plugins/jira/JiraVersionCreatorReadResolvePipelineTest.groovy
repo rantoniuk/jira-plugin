@@ -16,7 +16,7 @@ class JiraVersionCreatorReadResolvePipelineTest extends BasePipelineTest {
             def builder = new JiraVersionCreatorBuilder(
                     args.jiraVersion as String,
                     args.jiraProjectKey as String)
-            builder.setFailIfAlreadyExists(null)
+            builder.@failIfAlreadyExists = null
             builder.readResolve()
             assert builder.isFailIfAlreadyExists()
         }
@@ -25,7 +25,7 @@ class JiraVersionCreatorReadResolvePipelineTest extends BasePipelineTest {
                 def notifier = new JiraVersionCreator(
                         args.jiraVersion as String,
                         args.jiraProjectKey as String)
-                notifier.setFailIfAlreadyExists(null)
+                notifier.@failIfAlreadyExists = null
                 notifier.readResolve()
                 assert notifier.isFailIfAlreadyExists()
             }
