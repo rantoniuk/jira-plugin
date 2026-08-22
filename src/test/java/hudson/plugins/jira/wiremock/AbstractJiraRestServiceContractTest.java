@@ -15,6 +15,7 @@ import hudson.plugins.jira.JiraSite;
 import hudson.plugins.jira.extension.ExtendedVersion;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
@@ -35,6 +36,7 @@ import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
  * data — so a change to one of these test methods automatically applies to both backends
  * instead of needing to be duplicated.
  */
+@Tag("jenkins")
 @WithJenkins
 abstract class AbstractJiraRestServiceContractTest {
 

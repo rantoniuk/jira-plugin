@@ -15,10 +15,12 @@ import hudson.model.ParametersDefinitionProperty;
 import hudson.model.Run;
 import org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition;
 import org.jenkinsci.plugins.workflow.job.WorkflowJob;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 
+@Tag("jenkins")
 @WithJenkins
 class JiraIssueParameterTest {
 

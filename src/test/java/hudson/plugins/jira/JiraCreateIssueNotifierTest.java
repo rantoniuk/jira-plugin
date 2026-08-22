@@ -35,6 +35,7 @@ import java.util.Collections;
 import java.util.List;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import org.jvnet.hudson.test.JenkinsRule;
@@ -43,6 +44,7 @@ import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 
+@Tag("jenkins")
 @WithJenkins
 public class JiraCreateIssueNotifierTest {
 

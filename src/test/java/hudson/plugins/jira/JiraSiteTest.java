@@ -35,12 +35,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import jenkins.model.Jenkins;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.Issue;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.WithoutJenkins;
 import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 
+@Tag("jenkins")
 @WithJenkins
 class JiraSiteTest {
 

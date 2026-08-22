@@ -22,11 +22,13 @@ import java.util.Map;
 import org.jenkinsci.plugins.workflow.steps.StepConfigTester;
 import org.jenkinsci.plugins.workflow.steps.StepContext;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 import org.mockito.Mockito;
 
+@Tag("jenkins")
 @WithJenkins
 class CommentStepTest {
 

@@ -16,8 +16,10 @@ import io.jenkins.plugins.casc.model.CNode;
 import io.jenkins.plugins.casc.model.Mapping;
 import java.util.List;
 import java.util.Objects;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+@Tag("jenkins")
 @WithJenkinsConfiguredWithCode
 class ConfigAsCodeTest {
 

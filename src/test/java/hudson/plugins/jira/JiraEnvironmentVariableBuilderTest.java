@@ -24,12 +24,14 @@ import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.WithoutJenkins;
 import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 import org.mockito.ArgumentCaptor;
 
+@Tag("jenkins")
 @WithJenkins
 class JiraEnvironmentVariableBuilderTest {
 

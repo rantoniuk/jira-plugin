@@ -6,10 +6,12 @@ import static org.hamcrest.Matchers.*;
 import hudson.model.ParametersDefinitionProperty;
 import org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition;
 import org.jenkinsci.plugins.workflow.job.WorkflowJob;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 
+@Tag("jenkins")
 @WithJenkins
 class JiraReleaseVersionParameterTest {
 

@@ -476,4 +476,28 @@
       </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <!--
+      Opt-in fast lane: `mvn test -Pfast-tests` skips every test tagged "jenkins" (i.e. anything
+      that boots a real JenkinsRule, see AGENTS.md), for quicker local iteration. Deliberately
+      does NOT change the default `mvn test`/`mvn verify` behavior, since SonarCloud's coverage
+      job (.github/workflows/sonarcloud.yml) only runs the `test` phase and relies on those tests
+      being included there.
+    -->
+    <profile>
+      <id>fast-tests</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <excludedGroups>jenkins</excludedGroups>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

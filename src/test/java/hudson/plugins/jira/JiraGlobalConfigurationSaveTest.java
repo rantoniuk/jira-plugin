@@ -8,11 +8,13 @@ import static org.hamcrest.core.Is.is;
 import java.net.URL;
 import java.util.Collections;
 import java.util.List;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.Issue;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 
+@Tag("jenkins")
 @WithJenkins
 class JiraGlobalConfigurationSaveTest {
 

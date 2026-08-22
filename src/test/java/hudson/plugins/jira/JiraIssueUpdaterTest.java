@@ -17,6 +17,7 @@ import java.util.Set;
 import org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition;
 import org.jenkinsci.plugins.workflow.job.WorkflowJob;
 import org.jenkinsci.plugins.workflow.job.WorkflowRun;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
@@ -65,6 +66,7 @@ class JiraIssueUpdaterTest {
         assertThat(updater.getLabels(), is(testLabels));
     }
 
+    @Tag("jenkins")
     @WithJenkins
     @Test
     void testPipeline(JenkinsRule r) throws Exception {

@@ -49,9 +49,15 @@ the `mise exec --` prefix from every command below.
 
 ```sh
 mise exec -- mvn clean test                     # full build + test suite
+mise exec -- mvn test -Pfast-tests              # fast unit tests only, skips anything that boots Jenkins
 mise exec -- mvn test -Dtest=SomeTest           # a single test class
 mise exec -- mvn spotless:apply                 # fix formatting by hand (the pre-commit hook does this for you)
 ```
+
+Tests that boot a real embedded Jenkins instance (`@WithJenkins`/`@WithJenkinsConfiguredWithCode`)
+take noticeably longer than plain Mockito-based unit tests. Those are all tagged `@Tag("jenkins")`,
+so `mvn test -Pfast-tests` skips them for a quicker local loop. This is opt-in only — plain
+`mvn test`/`mvn verify` and CI still run the full suite.
 
 ### Pre-commit hooks
 

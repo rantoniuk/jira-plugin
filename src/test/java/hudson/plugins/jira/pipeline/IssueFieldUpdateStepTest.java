@@ -30,6 +30,7 @@ import java.util.Random;
 import org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition;
 import org.jenkinsci.plugins.workflow.job.WorkflowJob;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.jvnet.hudson.test.JenkinsRule;
@@ -37,6 +38,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 /** @author Dmitry Frolov tekillaz.dev@gmail.com */
+@Tag("jenkins")
 @WithJenkinsConfiguredWithCode
 @ExtendWith(MockitoExtension.class)
 class IssueFieldUpdateStepTest {

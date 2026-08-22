@@ -6,6 +6,7 @@ import static org.hamcrest.Matchers.nullValue;
 import java.net.URL;
 import org.apache.commons.lang3.StringUtils;
 import org.hamcrest.Matchers;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.WithoutJenkins;
@@ -14,6 +15,7 @@ import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 /**
  * @author lanwen (Merkushev Kirill)
  */
+@Tag("jenkins")
 @WithJenkins
 public class EmptyFriendlyURLConverterTest {
 

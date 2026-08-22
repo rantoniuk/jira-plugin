@@ -6,10 +6,12 @@ import com.thoughtworks.xstream.XStream;
 import hudson.plugins.jira.JiraProjectProperty.DescriptorImpl;
 import hudson.util.XStream2;
 import java.io.InputStream;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 
+@Tag("jenkins")
 @WithJenkins
 class JiraGlobalConfigurationTest {
 

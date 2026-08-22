@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import hudson.model.Job;
 import hudson.model.Run;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
@@ -23,6 +24,7 @@ class JiraBuildActionTest {
      */
     @Test
     @LocalData
+    @Tag("jenkins")
     @WithJenkins
     void binaryCompatibility(JenkinsRule r) throws Exception {
         assertEquals("Jenkins JiraBuildActionTest config", r.jenkins.getSystemMessage());

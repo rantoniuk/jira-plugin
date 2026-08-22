@@ -11,10 +11,12 @@ import hudson.plugins.jira.listissuesparameter.JiraIssueParameterDefinition;
 import hudson.plugins.jira.versionparameter.JiraVersionParameterDefinition;
 import java.io.IOException;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 
+@Tag("jenkins")
 @WithJenkins
 class CliParameterTest {
 

@@ -45,6 +45,7 @@ import org.hamcrest.Matchers;
 import org.jenkinsci.plugins.workflow.job.WorkflowJob;
 import org.jenkinsci.plugins.workflow.job.WorkflowRun;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import org.jvnet.hudson.test.JenkinsRule;
@@ -59,6 +60,7 @@ import org.mockito.stubbing.Answer;
  * @author kutzi
  */
 @SuppressWarnings("unchecked")
+@Tag("jenkins")
 @WithJenkins
 public class UpdaterTest {
 

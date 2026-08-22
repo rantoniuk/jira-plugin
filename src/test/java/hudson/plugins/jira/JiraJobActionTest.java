@@ -11,6 +11,7 @@ import org.jenkinsci.plugins.workflow.job.WorkflowJob;
 import org.jenkinsci.plugins.workflow.job.WorkflowRun;
 import org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.WithoutJenkins;
@@ -18,6 +19,7 @@ import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
+@Tag("jenkins")
 @WithJenkins
 class JiraJobActionTest {
 

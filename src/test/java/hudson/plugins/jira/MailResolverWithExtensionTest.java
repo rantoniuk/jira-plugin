@@ -39,6 +39,7 @@ import java.util.Map;
 import jenkins.model.Jenkins;
 import jenkins.security.SecurityListener;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.jvnet.hudson.test.JenkinsRule;
@@ -49,6 +50,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.core.userdetails.UserDetails;
 
+@Tag("jenkins")
 @WithJenkins
 @ExtendWith(MockitoExtension.class)
 class MailResolverWithExtensionTest {

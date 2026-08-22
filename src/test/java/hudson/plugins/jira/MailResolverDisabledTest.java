@@ -31,6 +31,7 @@ import static org.hamcrest.core.IsNull.nullValue;
 import hudson.model.User;
 import java.util.Collections;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
@@ -38,6 +39,7 @@ import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 /**
  * @author schristou88
  */
+@Tag("jenkins")
 @WithJenkins
 class MailResolverDisabledTest {
 

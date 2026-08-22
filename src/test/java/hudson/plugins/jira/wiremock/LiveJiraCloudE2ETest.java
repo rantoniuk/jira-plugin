@@ -8,6 +8,7 @@ import com.atlassian.jira.rest.client.api.domain.IssueType;
 import hudson.plugins.jira.JiraSite;
 import hudson.plugins.jira.extension.ExtendedVersion;
 import java.util.Collections;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
 import org.jvnet.hudson.test.JenkinsRule;
 
@@ -28,6 +29,7 @@ import org.jvnet.hudson.test.JenkinsRule;
  * mvn test -Dtest=LiveJiraCloudE2ETest
  * </pre>
  */
+@Tag("jenkins")
 @EnabledIfEnvironmentVariable(named = "JIRA_LIVE_TEST", matches = "true")
 class LiveJiraCloudE2ETest extends AbstractJiraRestServiceContractTest {
 

@@ -35,6 +35,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
 import jenkins.model.Jenkins;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.MockAuthorizationStrategy;
@@ -45,6 +46,7 @@ import org.mockito.Mockito;
 /**
  * Created by warden on 14.09.15.
  */
+@Tag("jenkins")
 @WithJenkins
 class DescriptorImplTest {
 

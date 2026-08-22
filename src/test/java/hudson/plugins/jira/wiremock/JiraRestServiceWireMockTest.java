@@ -51,6 +51,7 @@ import org.jvnet.hudson.test.JenkinsRule;
  * See {@code CONTRIBUTING.md} for how to refresh these against the real Jira Cloud test instance.
  */
 @Tag("wiremock")
+@Tag("jenkins")
 class JiraRestServiceWireMockTest extends AbstractJiraRestServiceContractTest {
 
     @RegisterExtension

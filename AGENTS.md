@@ -61,14 +61,21 @@ mvn spotless:apply              # auto-fix formatting (run before every commit)
 
 ```sh
 mvn clean test                                                        # full build + test suite
+mvn test -Pfast-tests                                                 # fast unit tests only, skips anything that boots Jenkins
 mvn test -Dtest=SomeTest                                              # single class
 mvn test -Dtest=SomeTest#someMethod                                   # single method
 mvn test -Dtest='JiraRestServiceWireMockTest,LiveJiraCloudE2ETest' -DfailIfNoTests=false
 ```
 
 - Tests use `jenkins-test-harness` (`@WithJenkins` + a `JenkinsRule` parameter), which boots a
-  real embedded Jenkins instance per test — this is normal, not a bug, and it's why individual
-  test runs take a few seconds each.
+  real embedded Jenkins instance per test class — this is normal, not a bug, and it's why
+  individual test runs take a few seconds each. Every such class or method is also annotated
+  `@Tag("jenkins")`, right next to the `@WithJenkins`/`@WithJenkinsConfiguredWithCode` annotation
+  (some classes mix fast Mockito-only tests with one or two Jenkins-booting methods — tag only
+  the methods that actually carry `@WithJenkins` in that case, not the whole class). The
+  `fast-tests` Maven profile (`mvn test -Pfast-tests`) excludes that group via Surefire's
+  `excludedGroups`, for a quick local test loop. This is opt-in only: default `mvn test`/
+  `mvn verify` (and CI, including SonarCloud's coverage run) still run everything, unchanged.
 - `surefire` is configured with `reuseForks=false`; don't remove that without checking why (see
   the comment above it in `pom.xml` — mock serialization issues otherwise).
 - `src/test/resources/logging.properties` quiets jenkins-test-harness's own INFO-level boot

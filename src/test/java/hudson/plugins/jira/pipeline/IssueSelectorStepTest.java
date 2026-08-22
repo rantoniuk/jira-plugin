@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.Set;
 import org.jenkinsci.plugins.workflow.steps.StepContext;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.jvnet.hudson.test.JenkinsRule;
@@ -26,6 +27,7 @@ import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+@Tag("jenkins")
 @WithJenkins
 @ExtendWith(MockitoExtension.class)
 class IssueSelectorStepTest {

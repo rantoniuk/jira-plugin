@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Arrays;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
@@ -25,6 +26,7 @@ import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 /**
  * @author Zhenlei Huang
  */
+@Tag("jenkins")
 @WithJenkins
 class CredentialsHelperTest {
 
