@@ -476,4 +476,27 @@
       </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <!-- Skips tests annotated (directly or via an abstract superclass) with @WithJenkins /
+           @WithJenkinsConfiguredWithCode, i.e. tests that boot a real embedded Jenkins instance;
+           see JenkinsBootTestFilter for the detection logic. Leaves default `mvn test`/`mvn verify`
+           behavior untouched; this is purely an opt-in fast local loop. -->
+      <id>fast-tests</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <systemPropertyVariables>
+                <jira.tests.excludeJenkins>true</jira.tests.excludeJenkins>
+              </systemPropertyVariables>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

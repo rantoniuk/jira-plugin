@@ -64,11 +64,20 @@ mvn clean test                                                        # full bui
 mvn test -Dtest=SomeTest                                              # single class
 mvn test -Dtest=SomeTest#someMethod                                   # single method
 mvn test -Dtest='JiraRestServiceWireMockTest,LiveJiraCloudE2ETest' -DfailIfNoTests=false
+mvn test -Pfast-tests                                                 # skip Jenkins-booting tests
 ```
 
 - Tests use `jenkins-test-harness` (`@WithJenkins` + a `JenkinsRule` parameter), which boots a
   real embedded Jenkins instance per test — this is normal, not a bug, and it's why individual
   test runs take a few seconds each.
+- The `fast-tests` profile (`mvn test -Pfast-tests`) skips every test annotated — directly, or via
+  an abstract superclass, e.g. `JiraRestServiceWireMockTest` via `AbstractJiraRestServiceContractTest`
+  — with `@WithJenkins`/`@WithJenkinsConfiguredWithCode`, via a `PostDiscoveryFilter`
+  (`hudson.plugins.jira.testutils.JenkinsBootTestFilter`, registered under
+  `src/test/resources/META-INF/services/`) that reflects on the existing annotations instead of
+  requiring a separate `@Tag`. It's a no-op unless that profile (or its
+  `-Djira.tests.excludeJenkins=true` system property) is active, so default `mvn test`/`mvn verify`
+  behavior — and CI — is unaffected.
 - `surefire` is configured with `reuseForks=false`; don't remove that without checking why (see
   the comment above it in `pom.xml` — mock serialization issues otherwise).
 - `src/test/resources/logging.properties` quiets jenkins-test-harness's own INFO-level boot

@@ -50,8 +50,15 @@ the `mise exec --` prefix from every command below.
 ```sh
 mise exec -- mvn clean test                     # full build + test suite
 mise exec -- mvn test -Dtest=SomeTest           # a single test class
+mise exec -- mvn test -Pfast-tests              # skip tests that boot a real Jenkins instance
 mise exec -- mvn spotless:apply                 # fix formatting by hand (the pre-commit hook does this for you)
 ```
+
+The `fast-tests` profile skips any test annotated with `@WithJenkins`/`@WithJenkinsConfiguredWithCode`
+(directly, or inherited from an abstract superclass) — no separate tagging needed, it's detected
+from the annotations already on the test. See `hudson.plugins.jira.testutils.JenkinsBootTestFilter`
+for the detection logic. Everything still runs under plain `mvn test`/`mvn verify` (and in CI) —
+this profile is purely an opt-in local speed-up.
 
 ### Pre-commit hooks
 
